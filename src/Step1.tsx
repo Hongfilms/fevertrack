@@ -22,46 +22,54 @@ export default function Step1({ onNext }: Step1Props) {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-softBlue p-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
-          🧸 <span className="ml-2">Step 1: 체중과 체온 입력</span>
+    <div className="min-h-screen flex items-center justify-center bg-softBlue px-4">
+      <div className="w-full max-w-sm bg-white rounded-3xl shadow-xl p-6">
+        <img
+          src={`${import.meta.env.BASE_URL}images/beaver.png`}
+          alt="비버 캐릭터"
+          className="w-24 h-24 mx-auto mb-4"
+        />
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+          체온을 재볼까?
         </h2>
 
-        <div className="space-y-5">
+        <div className="space-y-4">
           <div>
-            <label className="block text-gray-700 text-sm mb-1">체중 (kg)</label>
+            <label className="text-sm font-medium text-gray-600">체중 (kg)</label>
             <input
               type="number"
-              inputMode="decimal"
-              min="0"
+              className="w-full mt-1 px-4 py-3 rounded-xl border border-gray-300 text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primaryGreen transition"
+              placeholder="예: 18.5"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
-              placeholder="예: 18.5"
-              className="w-full rounded-xl border border-gray-300 px-4 py-3 text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primaryGreen transition"
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 text-sm mb-1">체온 (°C)</label>
+            <label className="text-sm font-medium text-gray-600">체온 (°C)</label>
             <input
               type="number"
-              inputMode="decimal"
-              min="0"
+              className="w-full mt-1 px-4 py-3 rounded-xl border border-gray-300 text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primaryGreen transition"
+              placeholder="예: 38.2"
               value={temperature}
               onChange={(e) => setTemperature(e.target.value)}
-              placeholder="예: 38.2"
-              className="w-full rounded-xl border border-gray-300 px-4 py-3 text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primaryGreen transition"
             />
           </div>
         </div>
 
         <button
           onClick={handleNext}
-          className="mt-8 w-full bg-primaryGreen text-white text-base font-semibold py-3 rounded-xl hover:bg-accentOrange transition"
+          className="mt-6 w-full py-3 rounded-full bg-primaryGreen hover:bg-accentOrange transition text-white font-semibold text-lg"
         >
-          다음
+          측정 시작
         </button>
+
+        <div className="mt-6 text-left">
+          <p className="text-sm font-semibold text-gray-700 mb-2">체온 기록</p>
+          <div className="w-full h-20 bg-gray-100 rounded-xl flex items-center justify-center">
+            📈
+          </div>
+        </div>
       </div>
     </div>
   );
