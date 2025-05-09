@@ -23,11 +23,11 @@ export default function Step1({ onNext }: Step1Props) {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-softBlue px-4">
-      <div className="w-full max-w-sm bg-white rounded-3xl shadow-xl p-6">
+      <div className="w-full max-w-sm bg-white rounded-3xl shadow-xl p-6 mt-8">
         <img
           src={`${import.meta.env.BASE_URL}images/beaver.png`}
           alt="비버 캐릭터"
-          className="w-24 h-24 mx-auto mb-4"
+          className="w-28 h-28 mx-auto mb-4 object-contain"
         />
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           체온을 재볼까?
