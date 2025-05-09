@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
@@ -14,10 +14,12 @@ function App() {
   const [selectedMedicine, setSelectedMedicine] = useState<'타이레놀' | '부루펜'>('타이레놀');
   const [temperatureRecords, setTemperatureRecords] = useState<{ time: string; temperature: number }[]>([]);
 
+  console.log('App rendering, current step:', step);
+
   if (step === 1) {
     return (
       <Step1
-        onNext={(w, t) => {
+        onNext={(w: number, t: number) => {
           setWeight(w);
           setTemperature(t);
           setStep(2);
@@ -29,7 +31,7 @@ function App() {
   if (step === 2) {
     return (
       <Step2
-        onNext={(symptoms) => {
+        onNext={(symptoms: string[]) => {
           console.log('선택된 증상:', symptoms);
           setSymptoms(symptoms);
           const containsVomitingOrDiarrhea = symptoms.includes('구토') || symptoms.includes('설사');
@@ -55,7 +57,7 @@ function App() {
   if (step === 4) {
     return (
       <Step4
-        onNext={(records) => {
+        onNext={(records: { time: string; temperature: number }[]) => {
           console.log('기록된 체온:', records);
           setTemperatureRecords(records);
           setStep(5);
@@ -96,7 +98,11 @@ function App() {
     );
   }
 
-  return null;
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <p>알 수 없는 단계: {step}</p>
+    </div>
+  );
 }
 
 export default App

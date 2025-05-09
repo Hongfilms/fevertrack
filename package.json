@@ -3,11 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://hongfilms.github.io/fevertrack",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vite build && gh-pages -d dist -b gh-pages"
   },
   "dependencies": {
     "@capacitor/cli": "^7.2.0",
@@ -33,6 +35,7 @@
     "tailwindcss": "^4.1.5",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "gh-pages": "^5.0.0"
   }
 }

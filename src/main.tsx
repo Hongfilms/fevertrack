@@ -1,14 +1,10 @@
 import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.tsx';
+import './index.css';
 
-interface Step1Props {
-  onNext: () => void;
-}
-
-export default function Step1({ onNext }: Step1Props) {
-  return (
-    <div>
-      <h2>Step 1</h2>
-      <button onClick={onNext}>Next</button>
-    </div>
-  );
-}
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
